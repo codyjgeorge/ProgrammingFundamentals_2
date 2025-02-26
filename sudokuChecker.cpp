@@ -8,7 +8,7 @@ const int columnSize = 3;
 const int rowSum = 6;
 const int columnSum = 6;
 int sudoku[rowSize][columnSize] = {};
-void sum(int sudoku[rowSize][columnSize]);
+void sum(int sudoku[][columnSize], int rowSize);
 
 int main() {
 
@@ -27,13 +27,14 @@ int main() {
     }
     cout << endl;
   }
-  void sum(int sudoku[rowSize][columnSize]);
+  sum(sudoku, rowSize);
+  return 0;
 }
-void sum(int sudoku[rowSize][columnSize]) {
+void sum(int sudoku[][columnSize], int rowSize) {
   int sum = 0;
   for (int row = 0; row < rowSize; row++) {
     for (int column = 0; column < columnSize; column++) {
-      sum += column;
+      sum += sudoku[row][column];
     }
 
     if (sum != rowSum) {
