@@ -1,15 +1,16 @@
-#include <cmath>
 #include <iostream>
 
 using namespace std;
 
-const int rowSize = 3;
-const int columnSize = 3;
-const int rowSum = 6;
-const int columnSum = 6;
+const int rowSize = 9;
+const int columnSize = 9;
+const int rowSum = 45;
+const int columnSum = 45;
+const int total = 45;
 int sudoku[rowSize][columnSize] = {};
 void rowChecker(int sudoku[][columnSize], int rowSize);
 void colChecker(int sudoku[][columnSize], int rowSize);
+void gridChecker(int sudoku[][columnSize], int rowSize);
 
 int main() {
 
@@ -30,6 +31,7 @@ int main() {
   }
   rowChecker(sudoku, rowSize);
   colChecker(sudoku, rowSize);
+  gridChecker(sudoku, rowSize);
   return 0;
 }
 void rowChecker(int sudoku[][columnSize], int rowSize) {
@@ -56,5 +58,13 @@ void colChecker(int sudoku[][columnSize], int rowSize) {
       cout << "Failed on column " << column + 1 << endl;
     }
     sum = 0;
+  }
+}
+void gridChecker(int sudoku[][columnSize], int rowSize) {
+  int sum = 0;
+  for (int row = 0; row < 3; row++) {
+    for (int column = 0; column < 3; column++) {
+      sum += sudoku[row][column];
+    }
   }
 }
