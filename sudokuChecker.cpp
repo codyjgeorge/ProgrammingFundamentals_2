@@ -9,6 +9,7 @@ const int rowSum = 6;
 const int columnSum = 6;
 int sudoku[rowSize][columnSize] = {};
 void rowChecker(int sudoku[][columnSize], int rowSize);
+void colChecker(int sudoku[][columnSize], int rowSize);
 
 int main() {
 
@@ -28,6 +29,7 @@ int main() {
     cout << endl;
   }
   rowChecker(sudoku, rowSize);
+  colChecker(sudoku, rowSize);
   return 0;
 }
 void rowChecker(int sudoku[][columnSize], int rowSize) {
@@ -39,6 +41,19 @@ void rowChecker(int sudoku[][columnSize], int rowSize) {
 
     if (sum != rowSum) {
       cout << "Failed on row " << row + 1 << endl;
+    }
+    sum = 0;
+  }
+}
+void colChecker(int sudoku[][columnSize], int rowSize) {
+  int sum = 0;
+  for (int column = 0; column < columnSize; column++) {
+    for (int row = 0; row < rowSize; row++) {
+      sum += sudoku[row][column];
+    }
+
+    if (sum != columnSum) {
+      cout << "Failed on column " << column + 1 << endl;
     }
     sum = 0;
   }
