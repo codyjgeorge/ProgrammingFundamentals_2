@@ -28,7 +28,7 @@ bool gridChecker(int validSudoku[][9]) {
   int endRow = 3;
   int endCol = 3;
   int sum = 0;
-  while (counter++ < 9) {
+  while (counter < 9) {
     sum = 0;
     for (int row = startRow; row < endRow; row++) {
       for (int column = startCol; column < endCol; column++) {
@@ -38,12 +38,14 @@ bool gridChecker(int validSudoku[][9]) {
     if (sum != 45) {
       return false;
     }
+    cout << sum << endl;
     counter++;
+    cout << counter << endl;
     startCol += 3;
     endCol += 3;
     if (startCol == 9) {
       startCol = 0;
-      endCol = 0;
+      endCol = 3;
       startRow += 3;
       endRow += 3;
     } else if (startRow == 9) {
