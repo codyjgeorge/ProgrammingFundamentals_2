@@ -43,13 +43,6 @@ public:
 int main() {
   Student studentarr[3] = {Student(1, 100, "Alex"), Student(2, 75, "David"),
                            Student(3, 60, "Tom")};
-  // Student student1 = Student(1, 100, "Alex");
-  // Student student2 = Student(2, 75, "David");
-  // Student student3 = Student(3, 60, "Tom");
-  // student1.displaydeets();
-  // student2.displaydeets();
-  // student3.displaydeets();
-
   for (int i = 0; i < 3; i++) {
     studentarr[i].displaydeets();
   }
