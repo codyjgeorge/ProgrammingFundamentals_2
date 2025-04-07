@@ -1,6 +1,9 @@
-#include <ifstream>
 #include <iostream>
-#include <ofstream>
 
 using namespace std;
-int main() { return 0; }
+int main() {
+  cout << "Enter file name of contacts: " << endl;
+  cin >> contacts;
+
+  return 0;
+}
