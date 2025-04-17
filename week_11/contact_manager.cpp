@@ -9,7 +9,7 @@ class Contact {
 
 private:
   string email;
-  double phone;
+  string phone;
 
 public:
   string name;
@@ -17,10 +17,10 @@ public:
   Contact() {
     name = "John Doe";
     email = "johndoe@neovim.com";
-    phone = 5551239876;
+    phone = 555 - 123 - 9876;
   }
 
-  Contact(string newname, string newemail, int newphone) {
+  Contact(string newname, string newemail, string newphone) {
     name = newname;
     email = newemail;
     phone = newphone;
@@ -40,7 +40,7 @@ public:
   }
   string const getName() { return name; }
   string const getEmail() { return email; }
-  int const getPhone() { return phone; }
+  string const getPhone() { return phone; }
   void displaycontact() {
     cout << "Name: " << name << endl;
     cout << "Email: " << email << endl;
