@@ -17,7 +17,7 @@ public:
   Contact() {
     name = "John Doe";
     email = "johndoe@neovim.com";
-    phone = 555 - 123 - 9876;
+    phone = "555-123-9876";
   }
 
   Contact(string newname, string newemail, string newphone) {
@@ -102,7 +102,7 @@ int main() {
       // adds 'Contact' objects to contactslist array for temporary storage
       // displays the contact entered after all three data fields are complete
       for (int i = 0; i < loopControl; i++) {
-        cout << "Enter the name, email and phone number(no spaces or hyphens) "
+        cout << "Enter the name, email and phone number "
                 "of contact number "
              << i + 1 << ": " << endl;
         contactslist[i].setName();
