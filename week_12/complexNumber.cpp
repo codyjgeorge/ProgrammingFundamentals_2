@@ -1,28 +1,67 @@
-#include <cmath>
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
 class Complex {
 private:
-  int realNum;
-  string imNum;
+  double real;
+  double imaginary;
 
 public:
+  // constructors;
   Complex() {
-    int realNum = 0;
-    string imNum = "i";
+    double real;
+    double imaginary;
+  }
+  Complex(double realNum, double imNum) {
+    double real = 0;
+    double imaginary = 0;
   }
 
-  void setReal(int num) { realNum = num; }
+  // setters;
+  void setReal(double num) { real = num; }
 
-  void setIm(string imaginary) { imNum = imaginary; }
+  void setIm(double imNum) { imaginary = imNum; }
 
-  const int getReal() { return realNum; }
+  // getters;
+  const double getReal() { return real; }
 
-  const string getIm() { return imNum; }
+  const double getIm() { return imaginary; }
+
+  // display complex number;
+  void display() { cout << real << imaginary << "i" << endl; }
+
+  // adds first complex number with second complex number;
+  void add(Complex a, Complex b) {
+    double realNum = a.real + b.real;
+    double imNum = a.imaginary + b.imaginary;
+    Complex c = Complex(realNum, imNum);
+    cout << Complex c << endl;
+  }
 };
 
-int main() { return 0; }
+int main() {
+  double firstReal;
+  double firstImaginary;
+  double secondReal;
+  double secondImaginary;
+  Complex a;
+  Complex b;
+  Complex c;
+
+  cout << "Welcome to the simple complex calculator!" << endl << endl;
+
+  // asks user to enter first complex number;
+  cout << "Enter the first real number and first imaginary number of the first "
+          "complex number: "
+       << endl;
+  cin >> a.setReal(firstReal), a.setIm(firstImaginary);
+  cout << "You entered: " << a.display() << endl;
+
+  // asks user to enter second complex number;
+  cout << "Enter the second real number and second imaginary number of the "
+          "second complex number: "
+       << endl;
+  cin >> b.setReal(secondReal), b.setIm(secondImaginary);
+  return 0;
+}
