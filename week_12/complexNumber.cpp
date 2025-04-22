@@ -74,8 +74,11 @@ int main() {
   cout << "You entered: " << b << endl;
 
   // calculations +,-,*,/ ;
+  // addition;
   Complex c = a + b;
   cout << "Total: " << c << endl;
+
+  // subtraction;
   c = a - b;
   cout << "Difference: " << c << endl;
   return 0;
