@@ -10,12 +10,12 @@ private:
 public:
   // constructors;
   Complex() {
-    double real;
-    double imaginary;
-  }
-  Complex(double realNum, double imNum) {
     double real = 0;
     double imaginary = 0;
+  }
+  Complex(double realNum, double imNum) {
+    real = realNum;
+    imaginary = imNum;
   }
 
   // setters;
@@ -36,7 +36,21 @@ public:
     double realNum = a.real + b.real;
     double imNum = a.imaginary + b.imaginary;
     Complex c = Complex(realNum, imNum);
-    cout << Complex c << endl;
+    cout << c << endl;
+  }
+
+  // overloaded functions;
+  friend ostream &operator<<(ostream &output, Complex &c) {
+    output << c.real << "+" << c.imaginary << "i" << endl;
+    return output;
+  }
+
+  friend istream &operator>>(istream &input, Complex &a) {
+    double realNum, imNum;
+    input >> realNum >> imNum;
+    a.setReal(realNum);
+    a.setIm(imNum);
+    return input;
   }
 };
 
@@ -55,13 +69,14 @@ int main() {
   cout << "Enter the first real number and first imaginary number of the first "
           "complex number: "
        << endl;
-  cin >> a.setReal(firstReal), a.setIm(firstImaginary);
-  cout << "You entered: " << a.display() << endl;
+  cin >> a;
+  cout << "You entered: " << a << endl;
 
   // asks user to enter second complex number;
   cout << "Enter the second real number and second imaginary number of the "
           "second complex number: "
        << endl;
-  cin >> b.setReal(secondReal), b.setIm(secondImaginary);
+  cin >> b;
+  cout << "You entered: " << b << endl;
   return 0;
 }
