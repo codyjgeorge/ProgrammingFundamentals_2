@@ -37,11 +37,12 @@ public:
   }
 
   // overloaded non-member function for output;
+  // prints in "a+bi" or "a-bi" format;
   friend ostream &operator<<(ostream &output, Complex &a) {
     if (a.imaginary < 0) {
-      output << a.real << a.imaginary << "i" << endl;
+      output << abs(a.real) << a.imaginary << "i" << endl;
     } else {
-      output << a.real << "+" << a.imaginary << "i" << endl;
+      output << abs(a.real) << "+" << a.imaginary << "i" << endl;
     }
     return output;
   }
