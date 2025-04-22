@@ -48,10 +48,8 @@ public:
 };
 
 int main() {
-  double firstReal;
-  double firstImaginary;
-  double secondReal;
-  double secondImaginary;
+  double userReal;
+  double userImaginary;
   Complex a;
   Complex b;
 
@@ -61,18 +59,18 @@ int main() {
   cout << "Enter the first real number and first imaginary number of the first "
           "complex number: "
        << endl;
-  cin >> firstReal >> firstImaginary;
-  a.setReal(firstReal);
-  a.setIm(firstImaginary);
+  cin >> userReal >> userImaginary;
+  a.setReal(userReal);
+  a.setIm(userImaginary);
   cout << "You entered: " << a << endl;
 
   // asks user to enter second complex number;
   cout << "Enter the second real number and second imaginary number of the "
           "second complex number: "
        << endl;
-  cin >> secondReal >> secondImaginary;
-  b.setReal(secondReal);
-  b.setIm(secondImaginary);
+  cin >> userReal >> userImaginary;
+  b.setReal(userReal);
+  b.setIm(userImaginary);
   cout << "You entered: " << b << endl;
 
   // calculations +,-,*,/ ;
