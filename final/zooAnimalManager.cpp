@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -37,36 +39,69 @@ public:
   void speak(string type, string title, string sound) {
     cout << title << "the " << type << " says " << sound << endl;
   }
-
-  // derived animal classes;
-  Animal::Lion {
-    name;
-    string type = "Lion";
-  }
 };
 
+// derived classes of 'Animal';
+class Lion : public Animal {
+public:
+  Animal("Lion", " ", "Roar!");
+};
+class Monkey : public Animal {
+public:
+  string name = " ";
+  string type = "Monkey";
+  string sound = "Chatter!";
+};
+class Elephant : public Animal {
+public:
+  string name = " ";
+  string type = "Elephant";
+  string sound = "Trumpet!";
+};
+
+// main program;
 int main() {
   int loopcontrol = 0;
+  vector<Animal> zooList = {};
 
   // menu loop;
-  while (loopcontrol < 3) {
-    cout << "1. Add an animal \n2. List all animals \n3. Exit" << endl;
-    cout << "Choose an option: ";
+  while (loopcontrol < 4) {
+    cout << "\n1. Add an animal \n2. List all animals \n3. Exit" << endl;
+    cout << "\nChoose an option: ";
     cin >> loopcontrol;
 
     // option 1;
     if (loopcontrol == 1) {
 
+      int userAnimal;
+      cout << "\n1. Lion \n2. Monkey \n3. Elephant \n\nChoose which animal to "
+              "add: ";
+      cin >> userAnimal;
+      if (userAnimal == 1) {
+        zooList.push_back(Animal());
+        cout << "\nLion Added!" << endl;
+      } else if (userAnimal == 2) {
+        zooList.push_back(Animal());
+        cout << "\nMonkey Added!" << endl;
+      } else if (userAnimal == 3) {
+        zooList.push_back(Animal());
+        cout << "\nElephant Added!" << endl;
+      } else {
+        cout << "\nInvalid Entry" << endl;
+      }
     }
 
     // option 2;
     else if (loopcontrol == 2) {
-
+      for (int i = 0; i < zooList.size(); i++) {
+        cout << zooList[i].getType() << endl;
+      }
     }
 
     // option 3;
     else if (loopcontrol == 3) {
-
+      cout << "\nHave a great day!" << endl;
+      break;
     }
 
     // invalid entry;
