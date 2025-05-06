@@ -36,27 +36,24 @@ public:
 
   // speak function, tells the name of the animal, the type, and the sound it
   // makes;
-  void speak(string type, string title, string sound) {
-    cout << title << "the " << type << " says " << sound << endl;
-  }
+  void speak() { cout << name << " the " << type << " says " << sound << endl; }
 };
 
 // derived classes of 'Animal';
 class Lion : public Animal {
 public:
-  Animal("Lion", " ", "Roar!");
+  Lion(string title) : Animal("Lion", title, "Roar") {}
+  void speak() { cout << name << " the Lion says 'Roar'" << endl; }
 };
 class Monkey : public Animal {
 public:
-  string name = " ";
-  string type = "Monkey";
-  string sound = "Chatter!";
+  Monkey(string title) : Animal("Monkey", title, "Chatter") {}
+  void speak() { cout << name << " the Monkey says 'Chatter'" << endl; }
 };
 class Elephant : public Animal {
 public:
-  string name = " ";
-  string type = "Elephant";
-  string sound = "Trumpet!";
+  Elephant(string title) : Animal("Elephant", title, "Trumpet") {}
+  void speak() { cout << name << " the Elephant says 'Trumpet'" << endl; }
 };
 
 // main program;
@@ -73,18 +70,21 @@ int main() {
     // option 1;
     if (loopcontrol == 1) {
 
+      string userName;
       int userAnimal;
+      cout << "What is the animal's name: ";
+      cin >> userName;
       cout << "\n1. Lion \n2. Monkey \n3. Elephant \n\nChoose which animal to "
               "add: ";
       cin >> userAnimal;
       if (userAnimal == 1) {
-        zooList.push_back(Animal());
+        zooList.push_back(Lion(userName));
         cout << "\nLion Added!" << endl;
       } else if (userAnimal == 2) {
-        zooList.push_back(Animal());
+        zooList.push_back(Monkey(userName));
         cout << "\nMonkey Added!" << endl;
       } else if (userAnimal == 3) {
-        zooList.push_back(Animal());
+        zooList.push_back(Elephant(userName));
         cout << "\nElephant Added!" << endl;
       } else {
         cout << "\nInvalid Entry" << endl;
@@ -94,7 +94,7 @@ int main() {
     // option 2;
     else if (loopcontrol == 2) {
       for (int i = 0; i < zooList.size(); i++) {
-        cout << zooList[i].getType() << endl;
+        zooList[i].speak();
       }
     }
 
